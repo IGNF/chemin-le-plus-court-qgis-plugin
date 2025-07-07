@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/chemin_plus_court" >
+        <file>/icons/icon_principal.png</file>
+    </qresource>
+</RCC>
