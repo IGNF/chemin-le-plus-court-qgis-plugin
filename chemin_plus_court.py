@@ -67,38 +67,11 @@ class CheminPlusCourt:
             self.translator.load(locale_path)
             QCoreApplication.installTranslator(self.translator)
 
-        # # toolbar
-        # self.actions = []
-        # self.menu = self.tr(u'&IGN Chemin le plus court')
-        # self.toolbar = self.iface.addToolBar(u'Chemin le plus court')
-        # self.toolbar.setObjectName(u'Cheminlepluscourt')
-        #
-        # action = QAction(QIcon(os.path.dirname(__file__) + "/icons/icon_principal.png"),
-        #                  "gerome",
-        #                  self.iface.mainWindow())
-        # self.toolbar.addAction(action)
-
-        # Check if plugin was started the first time in current QGIS session
-        # Must be set in initGui() to survive plugin reloads
         self.first_start = None
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
-        """Get the translation for a string using Qt translation API.
-
-        We implement this ourselves since we do not inherit QObject.
-
-        :param message: String for translation.
-        :type message: str, QString
-
-        :returns: Translated version of message.
-        :rtype: QString
-        """
-        # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('CheminPlusCourt', message)
-
-
-
 
     def initGui(self):
         pass
@@ -108,11 +81,7 @@ class CheminPlusCourt:
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
-        for action in self.actions:
-            self.iface.removePluginMenu(
-                self.tr(u'chemin_plus_court'),
-                action)
-            self.iface.removeToolBarIcon(action)
+        pass
 
 
     def run(self):
@@ -143,7 +112,9 @@ class CheminPlusCourt:
         else:
             geom_type = self.layer.wkbType()
             geom_type_str = QgsWkbTypes.displayString(geom_type)
-            if geom_type_str == "LineStringZ" or geom_type_str == "MultiLineString":
+            if (geom_type_str == "LineStringZ"
+                    or geom_type_str == "MultiLineString"
+                    or geom_type_str == "LineString"):
                 pass
             else:
                 return
