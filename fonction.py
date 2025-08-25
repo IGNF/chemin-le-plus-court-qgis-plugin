@@ -10,7 +10,6 @@ from .constante import *
 
 def afficheerreur(text, titre="Erreur"):
     msg = QMessageBox()
-    msg.setStyleSheet(FOND_DIAL)
     msg.setIcon(QMessageBox.Warning)
     msg.setWindowTitle(titre)
     msg.setStandardButtons(QMessageBox.Ok)
@@ -21,7 +20,6 @@ def afficheerreur(text, titre="Erreur"):
 def affichemessageAvertissement(text, titre):
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Warning)
-    msg.setStyleSheet(FOND_DIAL)
 
     msg.setWindowTitle(titre)
     msg.setText(text)
