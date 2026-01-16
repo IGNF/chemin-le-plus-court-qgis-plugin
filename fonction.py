@@ -1,12 +1,5 @@
-import os.path
 from qgis.PyQt.QtWidgets import QMessageBox
 from qgis.PyQt.QtCore import Qt
-
-from qgis.core import QgsCoordinateReferenceSystem, QgsProject
-
-import subprocess
-
-from .constante import *
 
 def afficheerreur(text, titre="Erreur"):
     msg = QMessageBox()
