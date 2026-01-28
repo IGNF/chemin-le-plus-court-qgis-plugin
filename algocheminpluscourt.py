@@ -5,19 +5,15 @@ from qgis.PyQt.QtGui import QGuiApplication
 
 import time
 from qgis import processing
-
 from .fonction import afficheerreur
-from .constante import *
 
-
-# from .change_attribut_hydro_dialog import changeAttributDialog
+CLEABS = "cleabs"
 
 def definiProjectionProjet(idproj):
     projection_epsg = idproj
     crs = QgsCoordinateReferenceSystem(projection_epsg)
     project = QgsProject.instance()
     project.setCrs(crs)
-
 
 class cheminpluscourt:
 
@@ -59,9 +55,6 @@ class cheminpluscourt:
         projet = QgsProject.instance()
         projectionProjet = projet.crs()
 
-        print("Projection projet =", projectionProjet)
-        print("Projection du layer = ", projectionLayer)
-
         # on modifie la projection pour faire correspondre à celle du layer
         definiProjectionProjet(projectionLayer)
 
@@ -69,7 +62,7 @@ class cheminpluscourt:
 
         QGuiApplication.setOverrideCursor(Qt.WaitCursor)
 
-        # sauvegarde des id du troncon initial et final
+        # sauvegarde des id du tronçon initial et final
         objetsselectionlayerini = self.layer.selectedFeatures()
 
         # creation du layer zone ecran
@@ -78,31 +71,29 @@ class cheminpluscourt:
         # copie des entités de la couche hydro dans la zone ecran
         self.selectionEntitesFromZoom()
 
-        # ajout des entités selectionnés
+        # ajout des entités sélectionnées
         self.addEntitesToLayer(layerZoom)
 
-        # re selection du troncon initial et final sur le layer hydro
+        # re selection du tronçon initial et final sur le layer hydro
         self.layer.removeSelection()
         self.layer.select(objetsselectionlayerini[0].id())
         self.layer.select(objetsselectionlayerini[1].id())
 
-        # intersection des 2 couches pour selectionner les 2 troncons sur le layer zoom
+        # intersection des 2 couches pour sélectionner les 2 tronçons sur le layer zoom
         processing.run("qgis:selectbylocation",
                        {'INPUT': layerZoom,
                         'PREDICATE': [6],
-                        # 'INTERSECT': self.layer,
-
                         'INTERSECT': QgsProcessingFeatureSourceDefinition(self.layer.dataProvider().dataSourceUri(),
                                                                           selectedFeaturesOnly=True),
                         'METHOD': 0})
 
         if layerZoom.selectedFeatureCount() != 2:
-            afficheerreur("Le tronçon de depart et le tronçon d'arrivée doivent etre visible à l'ecran")
+            afficheerreur("Le tronçon de depart et le tronçon d'arrivée doivent être visible à l'écran")
             QgsProject.instance().removeMapLayer(layerZoom)
-            # apres traitement on remet la projection du projet initial
+            # apres traitement, on remet la projection du projet initial
             definiProjectionProjet(projectionProjet)
             QGuiApplication.restoreOverrideCursor()
-            # apres traitement on re sélectionne le layer d'origine
+            # apres traitement, on sélectionne à nouveau le layer d'origine
             self.iface.setActiveLayer(layer_initial)
             return
 
@@ -133,24 +124,24 @@ class cheminpluscourt:
             QGuiApplication.restoreOverrideCursor()
             # apres traitement, on remet la projection du projet initial
             definiProjectionProjet(projectionProjet)
-            # apres traitement on re sélectionne le layer d'origine
+            # apres traitement, on sélectionne à nouveau le layer d'origine
             self.iface.setActiveLayer(layer_initial)
             return
         except Exception as e:
             afficheerreur(str(e), "Erreur générale :")
             QgsProject.instance().removeMapLayer(layerZoom)
-            # apres traitement on remet la projection du projet initial
+            # apres traitement, on remet la projection du projet initial
             definiProjectionProjet(projectionProjet)
-            # apres traitement on re sélectionne le layer d'origine
+            # apres traitement, on sélectionne à nouveau le layer d'origine
             self.iface.setActiveLayer(layer_initial)
             QGuiApplication.restoreOverrideCursor()
             return
 
-        # intersection de la couche hydro avec la couche temporaire pour selectionner le chemin le plus court
+        # intersection de la couche hydro avec la couche temporaire pour sélectionner le chemin le plus court
         # sur la couche hydro
         processing.run("qgis:selectbylocation",
                        {'INPUT': self.layer, 'PREDICATE': [6], 'INTERSECT': couche_resultante, 'METHOD': 0, })
-        # on ajoute à la selection le premier et le dernier troncon pour regler le pb d'effet de bord
+        # on ajoute à la sélection le premier et le dernier tronçon pour régler le pb d'effet de bord
         self.layer.selectByIds([objetsselectionlayerini[0].id()], QgsVectorLayer.AddToSelection)
         self.layer.selectByIds([objetsselectionlayerini[1].id()], QgsVectorLayer.AddToSelection)
 
@@ -158,11 +149,10 @@ class cheminpluscourt:
         QgsProject.instance().removeMapLayer(couche_resultante)
         QgsProject.instance().removeMapLayer(layerZoom)
 
-
-        # apres traitement on remet la projection du projet initial
+        # apres traitement, on remet la projection du projet initial
         definiProjectionProjet(projectionProjet)
 
-        # apres traitement on re sélectionne le layer d'origine
+        # apres traitement, on sélectionne à nouveau le layer d'origine
         self.iface.setActiveLayer(layer_initial)
 
         QGuiApplication.restoreOverrideCursor()

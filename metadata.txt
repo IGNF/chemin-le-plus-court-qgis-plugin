@@ -6,11 +6,11 @@
 name=IGN Chemin_plus_court
 qgisMinimumVersion=3.0
 description=Sélection du chemin le plus court entre 2 linéaires
-version=1.0.1
+version=1.1.0
 author=Gérôme PECHEUR (IGN)
 email=gerome.pecheur@ign.fr
 
-about=Sélection d'itineraire suivant l'algorithme du "chemin le plus court"
+about=Sélection d'itinéraire suivant l'algorithme du "chemin le plus court"
 
 #tracker=http://bugs
 #repository=http://repo

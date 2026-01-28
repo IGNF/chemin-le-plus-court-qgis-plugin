@@ -21,93 +21,33 @@
  *                                                                         *
  ***************************************************************************/
 """
-from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
-from qgis.PyQt.QtGui import QIcon
-from qgis.PyQt.QtWidgets import QAction,QMessageBox
-from qgis.core import QgsProject,QgsVectorLayer,QgsWkbTypes
-
-# Initialize Qt resources from file resources.py
-from .resources import *
-# Import the code for the dialog
-# from .chemin_plus_court_dialog import CheminPlusCourtDialog
-import os.path
-
+from qgis.PyQt.QtWidgets import QMessageBox
+from qgis.core import QgsWkbTypes
 from .algocheminpluscourt import *
 
-
 class CheminPlusCourt:
-    """QGIS Plugin Implementation."""
-
-    def actualiserSelection(self):
-        pass
-
     def __init__(self, iface):
-        """Constructor.
-
-        :param iface: An interface instance that will be passed to this class
-            which provides the hook by which you can manipulate the QGIS
-            application at run time.
-        :type iface: QgsInterface
-        """
-        # Save reference to the QGIS interface
         self.cheminpluscourt = None
         self.layer = None
         self.iface = iface
-        # initialize plugin directory
-        self.plugin_dir = os.path.dirname(__file__)
-        # initialize locale
-        locale = QSettings().value('locale/userLocale')[0:2]
-        locale_path = os.path.join(
-            self.plugin_dir,
-            'i18n',
-            'CheminPlusCourt_{}.qm'.format(locale))
-
-        if os.path.exists(locale_path):
-            self.translator = QTranslator()
-            self.translator.load(locale_path)
-            QCoreApplication.installTranslator(self.translator)
-
-        self.first_start = None
-
-    # noinspection PyMethodMayBeStatic
-    def tr(self, message):
-        return QCoreApplication.translate('CheminPlusCourt', message)
 
     def initGui(self):
         pass
-        """Create the menu entries and toolbar icons inside the QGIS GUI."""
-
-
 
     def unload(self):
-        """Removes the plugin menu item and icon from QGIS GUI."""
         pass
 
-
     def run(self):
-        """Run method that performs all the real work"""
-
-        # Create the dialog with elements (after translation) and keep reference
-        # Only create GUI ONCE in callback, so that it will only load when the plugin is started
-        if self.first_start == True:
-            self.first_start = False
-
         # test si un projet est chargé
         projet = QgsProject.instance()
         if len(projet.mapLayers()) <= 0:
-            # print("pas de projet chargé")
             QMessageBox.warning(self.iface.mainWindow(),"Attention","veuillez charger un projet",QMessageBox.Ok)
             return
-
         self.layer = self.iface.activeLayer()
         if not self.layer:
-            # print("pas de layer actif")
             return
 
-        # test si le layer est de type LineStringZ
-        # à voir si autre type de lineaires
         if not isinstance(self.layer, QgsVectorLayer):
-            # print("Ce n'est pas un layer vectoriel.")
             return
         else:
             geom_type = self.layer.wkbType()
@@ -118,10 +58,6 @@ class CheminPlusCourt:
                 pass
             else:
                 return
-
-
-        self.iface.mapCanvas().selectionChanged.connect(self.actualiserSelection)
-
         self.cheminpluscourt = cheminpluscourt(self.iface, self.layer)
 
         if self.layer.selectedFeatureCount() == 2:
