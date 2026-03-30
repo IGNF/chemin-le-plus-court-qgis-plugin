@@ -9,6 +9,7 @@ description=Sélection du chemin le plus court entre 2 linéaires
 version=1.2.0
 author=Gérôme PECHEUR (IGN)
 email=gerome.pecheur@ign.fr
+license=GNU AGPL v3
 
 about=Sélection d'itinéraire suivant l'algorithme du "chemin le plus court"
 
