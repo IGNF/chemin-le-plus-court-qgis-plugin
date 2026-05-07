@@ -52,9 +52,12 @@ class CheminPlusCourt:
         else:
             geom_type = self.layer.wkbType()
             geom_type_str = QgsWkbTypes.displayString(geom_type)
-            if (geom_type_str == "LineStringZ"
+            if (geom_type_str == "LineString"
+                    or geom_type_str == "LineStringZ"
+                    or geom_type_str == "LineStringZM"
                     or geom_type_str == "MultiLineString"
-                    or geom_type_str == "LineString"):
+                    or geom_type_str == "MultiLineStringZ"
+                    or geom_type_str == "MultiLineStringZM"):
                 pass
             else:
                 return
