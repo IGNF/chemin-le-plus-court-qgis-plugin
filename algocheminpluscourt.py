@@ -6,6 +6,7 @@ from qgis.PyQt.QtGui import QGuiApplication
 import time
 from qgis import processing
 from .fonction import afficheerreur
+from .mapping_version import *
 
 CLEABS = "cleabs"
 
@@ -60,7 +61,7 @@ class cheminpluscourt:
 
         start_time = time.time()
 
-        QGuiApplication.setOverrideCursor(Qt.WaitCursor)
+        QGuiApplication.setOverrideCursor(WaitCursor)
 
         # sauvegarde des id du tronçon initial et final
         objetsselectionlayerini = self.layer.selectedFeatures()
