@@ -5,7 +5,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td rowspan="2"><img src="docs/media/image2.jpeg"
+<td rowspan="2"><img src="media/image2.jpeg"
 style="width:1.38681in;height:1.47153in"
 alt="logo_IGN_pour_lettre" /></td>
 <td style="text-align: center;"><p><strong>Manuel utilisateur du plugin
