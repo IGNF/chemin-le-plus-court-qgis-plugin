@@ -13,8 +13,9 @@ email=gerome.pecheur@ign.fr
 
 about=Sélection d'itinéraire suivant l'algorithme du "chemin le plus court"
 
-#tracker=http://bugs
-#repository=http://repo
+homepage=https://ignf.github.io/chemin-le-plus-court-qgis-plugin/
+tracker=https://github.com/IGNF/chemin-le-plus-court-qgis-plugin/issues
+repository=https://github.com/IGNF/chemin-le-plus-court-qgis-plugin
 # End of mandatory metadata
 
 # Recommended items:
@@ -29,7 +30,7 @@ changelog=
 # Tags are comma separated with spaces allowed
 tags=analysis , python
 
-#homepage=http://homepage
+
 category=Plugins
 icon=icons/icon_principal.png
 # experimental flag
