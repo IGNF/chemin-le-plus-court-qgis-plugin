@@ -22,14 +22,9 @@ English :
 
 ## Ressources
 
-Documentation : https://github.com/IGNF/chemin-le-plus-court-qgis-plugin/blob/main/manuel%20chemin%20le%20plus%20court.pdf
+Documentation : https://ignf.github.io/chemin-le-plus-court-qgis-plugin/
 
 ## Licence
 
 GNU AGPL v3
-=======
-# chemin-le-plus-court-plugin-qgis
-Sélection du graphe du chemin le plus court sur tout objets linéaires
 
-La documentation est disponible à l'adresse suivante :
-https://ignf.github.io/chemin-le-plus-court-qgis-plugin/
