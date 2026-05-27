@@ -7,7 +7,7 @@ name=IGN Chemin_plus_court
 qgisMinimumVersion=3.0
 qgisMaximumVersion=4.99
 description=Sélection du chemin le plus court entre 2 linéaires
-version=1.3.0_recette
+version=1.3.0
 author=Gérôme PECHEUR (IGN)
 email=gerome.pecheur@ign.fr
 
