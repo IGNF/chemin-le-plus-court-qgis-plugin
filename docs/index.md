@@ -8,18 +8,26 @@
 <td rowspan="2"><img src="images/image2.jpeg"
 style="width:1.38681in;height:1.47153in"
 alt="logo_IGN_pour_lettre" /></td>
-<td style="text-align: center;"><p><strong>Manuel utilisateur du plugin
-Chemin le plus court</strong></p>
-<p><strong>V1.3.0</strong></p>
-<p><strong>07/05/2026</strong></p></td>
+<td style="text-align: center;font-size: 32px;"><strong>Plugin "Chemin le plus court" v1.3.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: center;"></td>
+<td style="font-size: 16px;text-align: center;">Développeur  : Gérôme PECHEUR (IGN)</td>
 </tr>
 </tbody>
 </table>
 
-# Résumé
+
+## Sommaire
+
+
+- [1. Résumé](#1-resume)
+- [2. Installation](#2-installation)
+- [3. Présentation](#3-presentation)
+- [4. Utilisation](#4-utilisation)
+
+<div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
+  <h2 id="1-resume" style="color: white;margin:0;" >1. Résumé</h2>
+</div>
 
 - Le plugin Chemin le plus court sélectionne tous les tronçons contigus
   entre 2 tronçons sélectionnés.
@@ -34,7 +42,9 @@ Chemin le plus court</strong></p>
 
 - Ce plugin est compatible QGIS3 et QGIS4
 
-# Installation
+<div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
+  <h2 id="2-installation" style="color: white;margin:0;" >2. Installation</h2>
+</div>
 
 > 2 possibilités :
 
@@ -47,33 +57,40 @@ Chemin le plus court</strong></p>
 
 - Installation via l’installateur (\*\_PluginIGN_Installer)
 
-# Présentation
+Une fois installé le plugin doit être activé dans le menu Extensions/Gérer les extensions.
+Ensuite il faut executer le plugin maitre afin d'integrer ce plugin dans le menu IGN et / ou dans une barre d'outils.
 
+
+<div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
+  <h2 id="3-presentation" style="color: white;margin:0;" >3. Présentation</h2>
+</div>
+
+Exemple de barre d'outils configurée avec le plugin maitre :
 <img src="images/image4.png"
 style="width:2.95833in;height:0.41667in" />
 
-Quand le plugin est installé et sélectionné dans le plugin maitre il
-insère une icône dans la barre d’outils IGN et/ou un lien dans le menu
-IGN de la barre de menus.
+Le plugin Chemin le plus court est représenté par l’icône suivante : <img src="images/image8.png"
+ />
 
-# Utilisation
+<div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
+  <h2 id="4-utilisation" style="color: white;margin:0;" >4. Utilisation</h2>
+</div>
 
-> Sélectionner 2 tronçons de la même couche.
->
-> Les deux tronçons doivent être visibles à l’écran.
->
-> Cliquer sur l’icône de la barre d’outils ou dans le menu IGN.
->
-> Les tronçons entre les 2 et formant l’itinéraire le plus court sont
-> sélectionnés (ils s’ajoutent aux 2 déjà dans la sélection)
->
-> <span class="mark">IMPORTANT</span> : le tronçon de départ et le
-> tronçon d’arrivée doivent être visibles à l’écran.
->
-> <img src="images/image5.png"
-> style="width:3.56828in;height:0.89596in" />
->
-> <img src="images/image6.png"
-> style="width:2.47612in;height:1.43091in" />
-> <img src="images/image7.png"
-> style="width:2.67627in;height:1.41559in" />
+Sélectionner 2 tronçons de la même couche.
+
+ Les deux tronçons doivent être visibles à l’écran.
+
+ Cliquer sur l’icône de la barre d’outils ou dans le menu IGN.
+
+ Les tronçons entre les 2 et formant l’itinéraire le plus court sont
+ sélectionnés (ils s’ajoutent aux 2 déjà dans la sélection)
+
+ <span class="mark">IMPORTANT</span> : le tronçon de départ et le
+ tronçon d’arrivée doivent être visibles à l’écran.
+
+
+
+ <img src="images/image6.png"
+ style="width:2.47612in;height:1.43091in" />
+ <img src="images/image7.png"
+ style="width:2.67627in;height:1.41559in" />
