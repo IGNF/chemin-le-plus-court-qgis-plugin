@@ -20,10 +20,11 @@ alt="logo_IGN_pour_lettre" /></td>
 ## Sommaire
 
 
-- [1. Résumé](#1-resume)
-- [2. Installation](#2-installation)
-- [3. Présentation](#3-presentation)
-- [4. Utilisation](#4-utilisation)
+- [1. Résumé](#resume)
+- [2. Prérequis](#prerequis)
+- [3. Installation](#installation)
+- [4. Présentation](#presentation)
+- [5. Utilisation](#utilisation)
 
 <div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
   <h2 id="1-resume" style="color: white;margin:0;" >1. Résumé</h2>
@@ -43,17 +44,25 @@ alt="logo_IGN_pour_lettre" /></td>
 - Ce plugin est compatible QGIS3 et QGIS4
 
 <div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
-  <h2 id="2-installation" style="color: white;margin:0;" >2. Installation</h2>
+  <h2 id="1-prerequis" style="color: white;margin:0;" >2. Prérequis</h2>
 </div>
 
-> 2 possibilités :
+- Version de QGIS : 3.28 ou supérieur (y compris QGIS4)
+
+- Le plugin « maitre » doit préalablement être installé : 
+[maitre-qgis-plugin sur GitHub](https://github.com/IGNF/maitre-qgis-plugin)
+
+<div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
+  <h2 id="installation" style="color: white;margin:0;" >3. Installation</h2>
+</div>
+
+2 possibilités :
 
 - Ouvrir QGIS, Allez dans Extensions/Installer/Gérer les extensions,
   cliquez sur Installer depuis un ZIP, sélectionner le fichier ZIP puis
   cliquez sur Installer le plugin.
 
-> <img src="images/image3.png"
-> style="width:5.21279in;height:1.1624in" />
+<img src="images/image3.png" style="width:5.21279in;height:1.1624in" />
 
 - Installation via l’installateur (\*\_PluginIGN_Installer)
 
@@ -62,18 +71,16 @@ Ensuite il faut executer le plugin maitre afin d'integrer ce plugin dans le menu
 
 
 <div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
-  <h2 id="3-presentation" style="color: white;margin:0;" >3. Présentation</h2>
+  <h2 id="presentation" style="color: white;margin:0;" >4. Présentation</h2>
 </div>
 
 Exemple de barre d'outils configurée avec le plugin maitre :
-<img src="images/image4.png"
-style="width:2.95833in;height:0.41667in" />
+<img src="images/image4.png" style="width:2.95833in;height:0.41667in" />
 
-Le plugin Chemin le plus court est représenté par l’icône suivante : <img src="images/image8.png"
- />
+Le plugin Chemin le plus court est représenté par l’icône suivante : <img src="images/image8.png"/>
 
 <div  style="background-color: #00ADC5; border: 1px solid black; padding: 5px; text-align: justify;margin-bottom:10px;">
-  <h2 id="4-utilisation" style="color: white;margin:0;" >4. Utilisation</h2>
+  <h2 id="utilisation" style="color: white;margin:0;" >5. Utilisation</h2>
 </div>
 
 Sélectionner 2 tronçons de la même couche.
